@@ -22,6 +22,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -89,7 +90,7 @@ public class BookingControllerTest {
 						.contentType(MediaType.APPLICATION_JSON)
 						.content(objectMapper.writeValueAsString(bookingDto)))
 				.andExpect(status().isBadRequest())  // Then: Status should be 400 BAD REQUEST
-				.andExpect(jsonPath("$.message").value("Not enough available cleaners for this time."));
+				.andExpect(content().string("Not enough available cleaners for this time."));
 		
 		// Verify that the bookingService.updateBooking method was called once
 		verify(bookingService, times(1)).updateBooking(anyInt(), any(BookingDTO.class));

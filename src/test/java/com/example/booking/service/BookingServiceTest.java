@@ -91,7 +91,7 @@ public class BookingServiceTest {
 	
 	private BookingDTO createSampleBookingDto() {
 		return BookingDTO.builder()
-				.bookingDate(LocalDate.now().plusDays(10))
+				.bookingDate(LocalDate.now().plusDays(1))
 				.bookingStartTime(LocalTime.of(10, 0))
 				.bookingDuration(2)
 				.cleaners(new ArrayList<>())

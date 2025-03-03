@@ -157,7 +157,7 @@ public class AvailabilityService {
 	public boolean isSlotAvailable(List<TimeslotDTO> availableSlots, LocalDateTime bookingStartTime, LocalDateTime bookingEndTime) {
 		for (TimeslotDTO slot : availableSlots) {
 			boolean beforeSlotEnds = bookingEndTime.isBefore(slot.getTo()) || bookingEndTime.equals(slot.getTo());
-			boolean afterSlotBegins = bookingStartTime.isAfter(slot.getFrom()) || bookingEndTime.equals(slot.getFrom());
+			boolean afterSlotBegins = bookingStartTime.isAfter(slot.getFrom()) || bookingStartTime.equals(slot.getFrom());
 			if (afterSlotBegins && beforeSlotEnds) {
 				return true;
 			}
