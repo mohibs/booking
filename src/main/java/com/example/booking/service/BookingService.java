@@ -48,6 +48,7 @@ public class BookingService {
 				.bookingDate(bookingDate)
 				.bookingStartTime(bookingStartTime)
 				.bookingDuration(bookingDuration)
+				.cleaners(availableCleaners)
 				.build());
 		
 		createdBooking.setCleaners(availableCleaners);
